@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>论坛社区</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="/css/community.css">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+<!--helloworld1-->
+<!--导入头部信息-->
+    <div th:insert="~{navigation :: nav}" ></div>
+<!--主体部分-->
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h2>
+            <hr>
+<!--一个个内容 需要循环实现的-->
+
+
+
+            <div class="media"  th:each="question : ${pagination.data}">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded"
+                             th:src="${question.user.avatarUrl}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a  href="/question/115">把项目部署到CentOS上后出现h2数据库找不到表，在win10电脑上是可以执行的</a>
+                    </h4>
+                    <span class="text-desc"><span>0</span> 个回复 • <span>1</span> 次浏览 • <span>2019-08-13 11:02</span></span>
+                </div>
+            </div>
+
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded"
+                             src="https://avatars0.githubusercontent.com/u/41381772?v=4">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a href="/question/114">js的缓存问题,百思不得骑姐?</a>
+                    </h4>
+                    <span class="text-desc"><span>2</span> 个回复 • <span>43</span> 次浏览 • <span>2019-08-12 17:49</span></span>
+                </div>
+            </div>
+
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-rounded"
+                             src="https://avatars2.githubusercontent.com/u/3762700?v=4">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <a href="/question/113">实现baidu的Oauth2.0认证登陆，比着葫芦画个瓢~</a>
+                    </h4>
+                    <span class="text-desc"><span>2</span> 个回复 • <span>48</span> 次浏览 • <span>2019-08-12 17:11</span></span>
+                </div>
+            </div>
+
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="active">
+                        <a href="/?page=1&amp;search=&amp;tag=">1</a>
+                    </li>
+
+                    <li>
+                        <a href="/?page=2&amp;search=&amp;tag=">2</a>
+                    </li>
+
+                    <li>
+                        <a href="/?page=3&amp;search=&amp;tag=">3</a>
+                    </li>
+
+                    <li>
+                        <a href="/?page=4&amp;search=&amp;tag=">4</a>
+                    </li>
+
+                    <li>
+                        <a href="/?page=2&amp;search=&amp;tag=" aria-label="Previous">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/?page=12&amp;search=&amp;tag=" aria-label="Previous">
+                            <span aria-hidden="true">&gt;&gt;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!--右侧边框内的内容-->
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div th:insert="~{side :: side}"></div>
+<!--相关链接部分-->
+            <!--相关问题-->
+            <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h4>热门标签</h4>
+                <ul class="question-related">
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=java">java</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=javascript">javascript</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=spring">spring</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=html">html</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=css">css</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=github">github</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=html5">html5</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=php">php</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=mysql">mysql</a>
+                    </li>
+                    <li>
+                        <a href="/?page=1&amp;search=&amp;tag=ide">ide</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!--导入底部信息-->
+<div th:insert="~{footer :: foot}"></div>
+</body>
+</html>
